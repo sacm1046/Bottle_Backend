@@ -38,7 +38,7 @@ def categories(id=None):
         db.session.commit()
         return jsonify({'success':'Deleted'}), 200
 
-@route_categories.route('/categorys', methods=['GET'])
+@route_categories.route('/category', methods=['GET'])
 @route_categories.route('/category/<int:id>', methods=['GET'])
 @route_categories.route('/categories/<int:not_all>', methods=['GET'])
 def freecategories(id=None, not_all = None):
