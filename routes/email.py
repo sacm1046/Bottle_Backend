@@ -7,7 +7,7 @@ route_email = Blueprint('route_email', __name__)
 @route_email.route('/sendemail', methods=['POST'])
 def sendemail():
     subject = '..::WEBSITE MESSAGE::..'
-    to_email = current_app.config['MAIL_USERNAME']
+    to_email = 'fjobson@loscanelos.cl'
     name = request.json.get('name', None)
     from_email = request.json.get('from_email', None)
     phone = request.json.get('phone', None)  
@@ -22,5 +22,5 @@ def sendemail():
     if not message:
         return jsonify({"error": "Message is required"}), 422
 
-    sendMail(subject, 'Yana', to_email, to_email, '<div><p>This is a message from your web, check the information below:</p><p>Contact name: '+name+'</p><p>Contact phone: '+phone+'</p><p>Contact email: '+from_email+'</p><p>Contact message: '+message+'</p></div>')
+    sendMail(subject, 'Francisco', to_email, to_email, '<div><p>This is a message from your web, check the information below:</p><p>Contact name: '+name+'</p><p>Contact phone: '+phone+'</p><p>Contact email: '+from_email+'</p><p>Contact message: '+message+'</p></div>')
     return jsonify({"success": "Email send successfully"}), 200
