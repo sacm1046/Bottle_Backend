@@ -29,8 +29,8 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_DEBUG'] = True
-app.config['MAIL_USERNAME'] = 'fromyourwebmessage@gmail.com'
-app.config['MAIL_PASSWORD'] = 'vkfaujqxuleqbrql'
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 jwt = JWTManager(app)
 db.init_app(app)
 mail = Mail(app)
