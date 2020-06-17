@@ -34,6 +34,7 @@ def bottles(id=None):
         bottle = Bottle.query.get(id)
         #bottle.image = request.json.get('image')
         bottle.country_esp = request.json.get('country_esp')
+        bottle.country = request.json.get('country')
         db.session.commit()
         return jsonify(bottle.serialize()), 200
 
