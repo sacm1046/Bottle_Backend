@@ -32,8 +32,8 @@ def bottles(id=None):
 
     if request.method == 'PUT':
         bottle = Bottle.query.get(id)
-        bottle.image = request.json.get('image')
-        #bottle.country_esp = request.json.get('country_esp')
+        #bottle.image = request.json.get('image')
+        bottle.country_esp = request.json.get('country_esp')
         db.session.commit()
         return jsonify(bottle.serialize()), 200
 
